@@ -2,6 +2,7 @@
 # include<unistd.h>
 # include<sys/time.h>
 # include<sys/wait.h>
+# include<cstring>
 
 using namespace std;
 
@@ -37,7 +38,16 @@ int main(int argc, char* argv[])
     }
     else if (pid == 0)
     {
-        execl(argv[1], argv[1], argv[2], nullptr);
+        // FILE *file;
+        // char cmd[4096] = "which ";
+        // char abs_path[4096] = {0};
+        // strcat(cmd, argv[1]);
+        // if ((file = popen(cmd, "r")) != NULL)
+        // {
+        //     fgets(abs_path, 4096, file);
+        //     pclose(file);
+        // }
+        execlp(argv[1], argv[1], argv[2], nullptr);
     }
     else
     {
